@@ -1,0 +1,19 @@
+.app {
+  //height: 100%; test browser chrome
+  //height: inherit;
+  //overflow-y: auto;
+  height: 100%;
+  // overflow-y: auto;
+  display: block;
+  flex-direction: column;
+  .body-template {
+    padding: 50px 32px 40px 25px;
+  }
+  .content-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    background: #fefefe;
+    transition: filter 0.25s ease;
+  }
+}

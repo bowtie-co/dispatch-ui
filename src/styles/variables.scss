@@ -1,0 +1,222 @@
+//--------------------------
+// VARIABLES
+//--------------------------
+
+/* GENERAL */
+/* FONTS */
+
+@import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap');
+
+// Fonts //
+
+
+// Fonts
+$header-font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+$body-font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+// breakpoints
+$base-width-max: 1200px;
+$narrow-width-max: 768px;
+$small-width-max: 480px;
+$xl-width-min: 1600px;
+$base-spacing: 0px;
+$narrow-spacing: 0px;
+$xl-spacing: 0px;
+$base-padding: 15px 30px;
+$narrow-padding: 10px 20px;
+$xl-padding: 20px 40px;
+
+// Border radius
+$border-radius-base:        1px !default;
+$border-radius-large:       1px !default;
+$border-radius-small:       0px !default;
+
+// Padding
+$padding-large-vertical: 10px !default;
+$padding-large-horizontal: 16px !default;
+
+$padding-base-vertical: 12px !default;
+$padding-base-horizontal: 24px !default;
+
+$padding-small-vertical: 5px !default;
+$padding-small-horizontal: 10px !default;
+
+$padding-xs-vertical: 1px !default;
+$padding-xs-horizontal: 5px !default;
+
+/* COLORS */
+
+// Main theme colors
+$blue: #007bff;
+$white: #fff;
+$black: #000;
+$gray: #333;
+$darkgray: #222;
+$red: #992c35;
+$lightblue: #3094ff;
+$orange: #fcad01;
+// $green: #1e7f8a;
+$green: #218036;
+$yellow: #eab136;
+
+
+
+// Our variables
+$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-size:   15px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.25;
+$spacing-unit:     30px;
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #222;
+$blue-font-color:  #007bff;
+$grey-color:       #888;
+$grey-bg-color:    #333;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-md-light: lighten($grey-color, 20%);
+$grey-color-dark:  darken($grey-color, 25%);
+// Text
+$theme-text-color: $black !default;
+
+$theme-primary-color: #07102c !default;
+$theme-secondary-color: $brand-color !default;
+$theme-brown-color: #a06227 !default;
+$theme-success-color: #2FAB4A !default;
+$theme-danger-color: #C02103 !default;
+$theme-info-color: #1075EA !default;
+$theme-warning-color: $yellow !default;
+
+// Line height
+$line-height-large: 2.5 !default; // extra decimals for Win 8.1 Chrome
+$line-height-small: 1.5 !default;
+
+// Font sizes
+$font-size-base: 1rem !default;
+$font-size-large: ceil(($font-size-base * 1.25)) !default;
+$font-size-small: ceil(($font-size-base * 0.85)) !default;
+
+$primary-font: $header-font-family; /** body, p **/
+$primary-font-weight: normal;
+$primary-font-color: $black;
+$secondary-font-color: $gray;
+
+$heading-font: $header-font-family; /** h1, h2, h3, h4, h5 **/
+$heading-font-weight: 700;
+$heading-font-color: $gray;
+
+$subheading-font: $header-font-family; /** h3, h4, h5 **/
+$subheading-font-weight: normal;
+$subheading-font-color: $white;
+
+$link-color: $blue;
+$link-weight: bold;
+$link-hover-color: $blue;
+$link-hover-weight: null;
+
+$nav: $white;
+$nav-hover: transparent;
+$nav-font-color: #0e1c47;
+$nav-hover-font-color: $black;
+
+$footer: $gray;
+$footer-font-color: $white;
+$footer-link-color: $white;
+$footer-link-hover-color: null;
+$subfooter-font-color: $white;
+$subfooter-link-color: $white;
+$footer-icon-color: null;
+$footer-border: none;
+
+// Section settings and colors //
+
+$body-bg: $black;
+$section-padding: 60px 30px;
+$content-container-bg: null;
+
+$section-font-color: $black;
+$section-heading-font-color: $blue;
+$section-subheading-font-color: null;
+$section-link-color: null;
+$section-link-hover-color: null;
+$section-bg: transparent;
+
+$section-bgclear-font-color: $black;
+$section-bgclear-heading-font-color: $blue;
+$section-bgclear-subheading-font-color: null;
+$section-bgclear-link-color: null;
+$section-bgclear-link-hover-color: null;
+
+$section-alt-font-color: null;
+$section-alt-subheading-font-color: null;
+$section-alt-heading-font-color: null;
+$section-alt-link-color: null;
+$section-alt-link-hover-color: null;
+$section-alt-bg: null;
+
+$section-dark-font-color: null;
+$section-dark-heading-font-color: null;
+$section-dark-subheading-font-color: null;
+$section-dark-link-color: null;
+$section-dark-link-hover-color: null;
+$section-dark-bg: null;
+
+
+// Banners
+$theme-dark-banner-color: #3B3B3A !default;
+
+// Backgrounds
+$theme-gray-gradient: linear-gradient(to bottom, $white, #eee) !default;
+$theme-dark-bg: #3B3B3A !default;
+$theme-nav-toggler-icon-svg: "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(251, 168, 25, 1)' stroke-width='4' stroke-linecap='square' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E";
+
+/* INPUTS */
+
+$input-border-radius: 3px !default;
+$input-drop-shadow: inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.5) !default;
+$input-border: solid 1px #dddddd !default;
+$input-placeholder-color: rgba(0, 0, 0, 0.5) !default;
+
+/* Buttons */
+$btn-font-color: #333;
+$radius: 1px;
+$default: #111f49;
+$default-hover: #444;
+$default-font-color: null;
+$info: $blue;
+$info-hover: $darkgray;
+$info-font-color: null;
+$success: $blue;
+$success-hover: $gray;
+$success-font-color: #FFF;
+$warning: #b73f17;
+$warning-hover: #b73f17;
+$warning-font-color: #fff;
+// Width of the content area
+$content-width:    800px;
+$on-palm:          600px;
+$on-laptop:        768px;
+
+// internet explorer fixes and fallbacks
+$enable-flex: true;
+@media all and (-ms-high-contrast:none), (-ms-high-contrast:active) {
+  .carousel-fade {
+    .carousel-item {
+      display: block;
+      position: absolute;
+      opacity: 0;
+      transition: opacity .75s ease-in-out;
+      &.active {
+        opacity: 1;
+      }
+    }
+    #slider_captions{
+      display: none;
+    }
+  }
+ }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}

@@ -1,0 +1,44 @@
+.ShareContainer {
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  h5 {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .takeaway-content {
+    padding: 30px 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .share-content {
+    //border-top-left-radius: 50%;
+    //border-top-right-radius: 50%;
+    //width: 200%;
+    //left: -50%;
+    //top: -40px;
+    //bottom: -100px;
+    //margin-bottom: -40px;
+    padding-top: 2.5rem;
+    height: 100%;
+    position: relative;
+    .disclaimer-text {
+      margin-bottom: 50px;
+    }
+    .container {
+      max-width: 960px;
+      width: 90vw;
+    }
+    h3, h2 {
+      margin-bottom: 1.5rem;
+    }
+    .primary-text {
+      margin-bottom: 3rem;
+      font-size: 1.1em;
+    }
+  }
+}

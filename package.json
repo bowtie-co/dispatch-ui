@@ -1,0 +1,95 @@
+{
+  "name": "reach-ui",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@airbrake/browser": "^1.0.6",
+    "@bowtie/api": "^0.6.3",
+    "@bowtie/ts-github": "^1.4.0",
+    "@bowtie/utils": "^0.3.3",
+    "@emotion/core": "^10.0.28",
+    "@rjsf/core": "^2.0.0-alpha.6",
+    "@tinymce/tinymce-react": "^3.5.0",
+    "@vimeo/player": "^2.14.0",
+    "ansi-to-html": "^0.6.14",
+    "async": "^3.2.0",
+    "bootstrap": "^4.4.1",
+    "classnames": "^2.2.6",
+    "eventemitter2": "^5.0.1",
+    "font-picker-react": "^3.5.2",
+    "hookrouter": "^1.2.3",
+    "interactjs": "^1.10.1",
+    "js-file-download": "^0.4.12",
+    "js-yaml": "^3.13.1",
+    "moment": "^2.24.0",
+    "pubnub": "^4.27.4",
+    "qs": "^6.9.3",
+    "react": "^16.14.0",
+    "react-color": "^2.19.3",
+    "react-colorful": "^5.6.1",
+    "react-dates": "^21.8.0",
+    "react-datetime": "^3.2.0",
+    "react-dom": "^16.14.0",
+    "react-draft-wysiwyg": "^1.15.0",
+    "react-dropzone": "^14.2.3",
+    "react-dropzone-s3-uploader": "^1.1.0",
+    "react-file-base64": "^1.0.3",
+    "react-ga4": "^2.1.0",
+    "react-helmet": "^6.1.0",
+    "react-jsonschema-form": "^1.8.1",
+    "react-select": "^5.7.4",
+    "react-share": "^4.4.1",
+    "react-spinners": "^0.13.8",
+    "reactstrap": "^8.10.1",
+    "sanitize-html": "^2.6.1",
+    "sass": "^1.67.0",
+    "slugify": "^1.4.0",
+    "toml": "^3.0.0",
+    "uuid": "^3.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint src/**/*.{js,jsx}",
+    "lint:fix": "eslint src/**/*.{js,jsx} --fix",
+    "test": "react-scripts test --coverage",
+    "eject": "react-scripts eject",
+    "audit": "npm audit"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@bowtie/prettier": "^1.4.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
+    "enzyme-to-json": "^3.5.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^2.0.2",
+    "react-scripts": "^5.0.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.jsx",
+      "!src/_tests_/**/*.jsx"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ]
+  }
+}

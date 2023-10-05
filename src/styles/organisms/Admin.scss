@@ -1,0 +1,262 @@
+.AdminContainer {
+  height: 100%;
+  margin-top: 1rem;
+  // background-color: $gray;
+  table {
+    padding: 0 30px;
+    width: 100%;
+    thead {
+      cursor: default;
+      th {
+        border-top: none;
+      }
+    }
+    tbody {
+      font-weight: 100;
+      tr {
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+}
+
+.AdminThemeContainer {
+  height: 100%;
+  margin-top: 1rem;
+  // background-color: $gray;
+  table {
+    padding: 0 30px;
+    width: 100%;
+    thead {
+      cursor: default;
+      th {
+        border-top: none;
+      }
+    }
+    tbody {
+      font-weight: 100;
+      tr {
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+}
+
+.ThemeCreate {
+  height: 100%;
+  margin-top: 1rem;
+  // background-color: $gray;
+  table {
+    padding: 0 30px;
+    width: 100%;
+    thead {
+      cursor: default;
+      th {
+        border-top: none;
+      }
+    }
+    tbody {
+      font-weight: 100;
+      tr {
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+}
+
+.ThemeEdit {
+  height: 100%;
+  margin-top: 1rem;
+  // background-color: $gray;
+  table {
+    padding: 0 30px;
+    width: 100%;
+    thead {
+      cursor: default;
+      th {
+        border-top: none;
+      }
+    }
+    tbody {
+      font-weight: 100;
+      tr {
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+}
+
+.AdminLoginForm, .AdminForgotPasswordForm {
+  padding: 0 15px 100px 15px !important;
+  max-width: 600px !important;
+  .btn {
+    margin-top: 10px;
+  }
+}
+
+.admin-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  .logo {
+    max-width: 50px;
+    height: auto;
+  }
+  h1 {
+    text-transform: uppercase;
+    margin: 0 0 0 10px;
+  }
+}
+
+.admin-table-container {
+  position: relative;
+  margin-top: 50px;
+  // TODO: @Nick, @Chad - is there a more dynamic height we can use?
+  height: 80%;
+}
+
+.admin-bg {
+  position: absolute;
+  top: 160px;
+  left: -15px;
+  background-color: $white;
+  height: 100%;
+  width: 100vw;
+}
+
+.admin-table-content {
+  position: relative;
+  font-family: $body-font-family;
+  h5 {
+    margin-left: 15px;
+    margin: 10px 15px;
+    width: 100%;
+  }
+}
+
+.AdminModerationTable, .FanPagesTable {
+  background-color: $white;
+}
+
+.AdminModerationTable {
+  tbody {
+    tr {
+      cursor: pointer;
+    }
+  }
+}
+
+.FanPagesTable {
+  padding: 0 30px;
+  width: 100%;
+  @media(max-width: $base-width-max) {
+    display: block;
+    overflow-x: auto;
+  }
+  .fan-page-remove {
+    margin-left: 1.25rem;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .dropdown {
+    .dropdown-toggle {
+      padding: 5px 10px;
+      min-height: 0;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.AdminModerationModal, .AdminFanPageModal {
+  color: $black;
+  .modal-header {
+    border-bottom: none;
+  }
+  h3 {
+    color: $black !important;
+  }
+  .btn {
+    border-radius: 10px;
+  }
+}
+
+.AdminModerationModal {
+  // max-width: 980px !important;
+  .modal-header {
+    .close {
+      z-index: 1;
+    }
+  }
+  .modal-body {
+    padding: 0 0 1rem 0;
+    margin-top: -56px;
+
+    video {
+      border-radius: 3px 3px 0 0;
+    }
+  }
+  .moderation-modal-content {
+    width: 90%;
+    max-width: 400px;
+    margin: 15px auto;
+    border-radius: 0;
+    .btn {
+      width: 170px;
+      @media(max-width: $narrow-width-max) {
+        padding: .6em 1.25em !important;
+        // width: 120px;
+        margin: 0 auto 1em ;
+      }
+    }
+    textarea {
+      margin-top: 15px;
+      width: 100%;
+      min-height: 100px;
+      border-radius: 15px;
+      padding: 10px 15px;
+      resize: none;
+      font-style: italic;
+      &:disabled {
+        color: $grey-color;
+      }
+    }
+    label{
+      line-height: 30px;
+    }
+    .moderation-modal-nav {
+      button {
+        &:not(:disabled) {
+          color: $theme-text-color;
+        }
+        &:disabled {
+          border: none;
+          background: none;
+        }
+      }
+    }
+  }
+}
+
+.AdminFanPageModal {
+  .modal-header {
+    padding: 1rem 1rem 0 1rem;
+  }
+  .modal-body {
+    padding-top: 0;
+  }
+  h4 {
+    color: $theme-text-color !important;
+  }
+}

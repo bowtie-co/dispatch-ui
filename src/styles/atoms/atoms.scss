@@ -1,0 +1,99 @@
+
+.avatar {
+	height: 45px;
+	border-radius: 50%;
+	margin: 8px 25px;
+	margin-left: 0;
+}
+
+.card {
+	margin: 10px;
+	padding: 20px 20px 10px;
+	min-width: 100px;
+	// border-radius: $border-radius-base !important;
+	border: 1px solid #eee;
+	font-weight: 300 !important;
+	.card-title, h5.card-title {
+		flex: 1 1 auto;
+		padding: .5rem 1rem;
+		font-size: 1.1em;
+		background-color: #f0f0f0;
+		font-weight: 400;
+	}
+	.repo-name {
+		font-weight: 400;
+	}
+}
+
+.summary {
+	min-height: 60px;
+}
+
+
+.fa-icon-sm{
+  display: inline;
+  margin: 6px;
+}
+
+.logo-sm {
+	margin: 4px 10px;
+}
+.logo-md {
+	margin: 5px auto 16px;
+}
+.logo-lg {
+	margin: 15px 19px;
+}
+.logo-xl {
+	margin: 15px 19px;
+}
+
+a.link,
+a.link:hover {
+	text-decoration: none;
+}
+
+.subtitle {
+	color: black;
+	font-size: 18px;
+}
+
+label span {
+	font-size: 15px;
+  font-weight: 300;
+  color: #515151;
+}
+.input-group-addon {
+	border: 1px lightgrey solid;
+	border-right: none;
+}
+.cursor-pointer{
+	cursor: pointer;
+}
+
+.loader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+	background: none;
+  z-index: 30000;
+	opacity: 0.75;
+
+	&.loader-blocking {
+		background-color: $black;
+		opacity: 1;
+	}
+}
+
+.loaderimg {
+  width: 125px;
+  height: 125px;
+  align-self: center;
+  margin: 0 auto;
+}

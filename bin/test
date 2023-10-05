@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bin/run "docker-compose run -l traefik.enable=false --rm -e NODE_ENV=test -e CI=true reach-ui npm test"

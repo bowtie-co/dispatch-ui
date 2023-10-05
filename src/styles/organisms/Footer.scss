@@ -1,0 +1,39 @@
+
+.AppFooter {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  font-size: .7em;
+  font-style: italic;
+  font-family: $body-font-family;
+  font-weight: normal;
+  width: 100%;
+  bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  a {
+    color: $white;
+
+  }
+  .nav {
+    padding-top: 3px;
+    justify-content: center;
+    font-weight: normal;
+  }
+}
+
+.legal-nav {
+  span {
+    margin-top: 3px;
+    font-size: 1rem;
+  }
+  .nav-item {
+    border-right: 1px solid #eee;
+    &:last-of-type {
+      border-right: none;
+    }
+  }
+  .nav-link {
+    padding: 0.5rem;
+  }
+}

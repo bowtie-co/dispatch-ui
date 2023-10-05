@@ -1,0 +1,278 @@
+//--------------------------
+// BUTTONS
+//--------------------------
+
+// Font
+$btn-font-weight: 600 !default;
+
+// Border radius
+$btn-border-radius-base: $border-radius-base !default;
+$btn-border-radius-large: $border-radius-large !default;
+$btn-border-radius-small: $border-radius-small !default;
+
+// GENERAL BUTTONS
+
+$btn-default-color: #333 !default;
+$btn-default-bg: #fff !default;
+$btn-default-border: solid 2px $theme-primary-color !default;
+
+
+$btn-success-color: #fff !default;
+$btn-success-bg: $theme-success-color !default;
+$btn-success-border: darken($btn-success-bg, 5%) !default;
+
+$btn-info-color: #fff !default;
+$btn-info-bg: $theme-info-color !default;
+$btn-info-border: darken($btn-info-bg, 5%) !default;
+
+$btn-warning-color: #fff !default;
+$btn-warning-bg: $theme-warning-color !default;
+$btn-warning-border: darken($btn-warning-bg, 5%) !default;
+
+$btn-danger-color: #fff !default;
+$btn-danger-bg: $theme-danger-color !default;
+$btn-danger-border: darken($btn-danger-bg, 5%) !default;
+
+$btn-link-disabled-color: $gray !default;
+
+// THEME STYLED BUTTONS
+
+// Primary button
+$btn-primary-text: #fff !default;
+$btn-primary-bg: $theme-primary-color !default;
+$btn-primary-border: solid 2px $theme-primary-color !default;
+
+// Secondary button
+$btn-secondary-text: #fff !default;
+$btn-secondary-bg: $theme-secondary-color !default;
+$btn-secondary-border: solid 2px $theme-secondary-color !default;
+
+// Inverted orange button
+$btn-primary-inverted-text: $theme-primary-color !default;
+$btn-primary-inverted-bg: #fff !default;
+$btn-primary-inverted-border: solid 2px $theme-primary-color !default;
+
+$theme-secondary-border: solid 2px $theme-secondary-color !default;
+
+// Brown button
+$btn-brown-text: #fff !default;
+$btn-brown-bg: $theme-brown-color !default;
+$btn-brown-border: solid 2px $theme-brown-color !default;
+
+// Inverted brown button
+$btn-brown-inverted-text: $theme-brown-color !default;
+$btn-brown-inverted-bg: #fff !default;
+$btn-brown-inverted-border: solid 2px $theme-brown-color !default;
+
+// Blue button
+$btn-blue-text: #fff !default;
+$btn-blue-bg: $blue !default;
+$btn-blue-border: solid 2px $blue !default;
+
+// Inverted blue button
+$btn-blue-inverted-text: $blue !default;
+$btn-blue-inverted-bg: #fff !default;
+$btn-blue-inverted-border: solid 2px $blue !default;
+
+// Light gray button
+$btn-lightgray-text: #fff !default;
+$btn-lightgray-bg: $gray !default;
+$btn-lightgray-border: solid 2px $gray !default;
+
+// Dark gray button
+$btn-darkgray-text: #fff !default;
+$btn-darkgray-bg: $darkgray !default;
+$btn-darkgray-border: solid 2px $darkgray !default;
+
+// Red button
+$btn-red-text: #fff !default;
+$btn-red-bg: $theme-danger-color !default;
+$btn-red-border: solid 2px $theme-danger-color !default;
+
+// Inverted red button
+$btn-red-inverted-text: $theme-danger-color !default;
+$btn-red-inverted-bg: #fff !default;
+$btn-red-inverted-border: solid 2px $theme-danger-color !default;
+
+button:focus {
+  outline: 0;
+  outline: none;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+button.btn {
+    font-weight: $btn-font-weight;
+    font-family: $body-font-family;
+    text-transform: uppercase;
+    padding: 0.5em 3em;
+    border-radius: $btn-border-radius-large;
+    min-height: 44px;
+    // background-color: white;
+    border: 1px $brand-color solid;
+    color: $btn-font-color;
+    &.disabled{
+      color: lightgrey;
+      border: 1px lightgrey solid;
+    }
+    &:hover {
+      border: 1px $brand-color solid;
+      color: $white;
+      background-color: darken($brand-color, 10%);
+    }
+    &.active {
+      color: $brand-color;
+      &:hover {
+        color: $btn-font-color;
+      }
+    }
+
+    &.btn-white-bg {
+      color: $brand-color;
+      background-color: $white;
+      &.active {
+        color: $white;
+        background-color: $brand-color;
+        border-color: $white;
+      }
+    }
+
+    &.btn-primary, &.btn-secondary, &.btn-success, &.btn-info, &.btn-warning, &.btn-danger {
+      border: none;
+      border: 1px $brand-color solid;
+      border-radius: $btn-border-radius-large;
+    }
+
+    &.btn-success {
+      color: $white;
+      &:hover {
+        background-color: $green;
+        color: $white;
+      }
+    }
+    &.btn-info {
+      background-color: $blue;
+      color: $white;
+      &:hover {
+        color: $white;
+        background-color: $blue;
+        opacity: .8;
+      }
+    }
+    &.btn-warning {
+      color: $white;
+      &:hover {
+        color: $white;
+        background-color: darken($btn-warning-bg, 10%);
+      }
+    }
+    &.btn-danger {
+      color: $white;
+      &:hover {
+        background-color: $red;
+        color: $white;
+      }
+    }
+  }
+
+.btn-link {
+  font-weight: $link-weight !important;
+  color: $link-color;
+  background: none;
+  border: none;
+  font-family: $header-font-family;
+  &:hover, &:focus, &:active {
+    color: $link-color !important;
+  }
+  @media (max-width: 320px) {
+    font-size: .9em;
+  }
+}
+
+// Position
+.btn-right {
+    float: right;
+}
+
+// Sizes
+.btn-sm {
+    padding: .4rem .75rem !important;
+    min-width: 90px;
+    min-height: 36px !important;
+    @media (max-width: $small-width-max) {
+      min-width: unset;
+    }
+}
+
+.btn-xs {
+  font-size: .75rem !important;
+  padding: .2rem .45rem !important;
+  margin-right: .25rem;
+  margin-bottom: .25rem;
+  min-width: 45px;
+  min-height: 28px !important;
+  @media (max-width: $small-width-max) {
+    min-width: unset;
+  }
+}
+
+.profilebtn {
+  .btn{
+    min-width: 120px;
+  }
+}
+.btn-block {
+  @media (max-width: $small-width-max) {
+    padding: 0.8em .5em;
+  }
+}
+.toggle-advanced-search-btn, .clear-search-btn {
+    i.fa {
+      color: #fff;
+    }
+  }
+
+.toggle-advanced-search-btn i.fa {
+    margin-left: 10px;
+}
+
+.clear-search-btn {
+    margin: -10px 0 10px;
+
+    @media (min-width: $narrow-width-max) {
+        margin: 30px 0 0;
+    }
+
+    i.fa {
+        margin-left: 5px;
+    }
+}
+.reg-button{
+  //height: 60px;
+  width: 100%;
+  max-width: 260px;
+  background-color: transparent !important;
+  &:hover{
+    background: $brand-color!important;
+  }
+}
+button.btn-primary{
+  color: $btn-default-color;
+  background-color: $btn-default-bg;
+  border: $btn-default-border;
+}
+button.btn-secondary{
+  color: $btn-secondary-text;
+  background-color: $btn-secondary-bg;
+  border: $btn-secondary-border;
+}
+button.btn-warning{
+  color: $btn-warning-color;
+  background-color: $btn-warning-bg;
+  border: $btn-warning-border;
+}

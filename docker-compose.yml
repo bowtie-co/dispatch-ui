@@ -1,0 +1,55 @@
+version: '3.5'
+
+services:
+  reach-ui:
+    # tty: true
+    stdin_open: true
+    networks:
+      - dev
+    ports:
+      - 3000:3000
+    build:
+      context: .
+      target: dev
+    volumes:
+      - .:/app
+      - type: volume
+        source: nodemodules
+        target: /app/node_modules
+        volume:
+          nocopy: true
+      - type: volume
+        source: npm
+        target: /root/.npm
+        volume:
+          nocopy: true
+    depends_on:
+      - reach-ui-ngrok
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=3000"
+      - "traefik.frontend.rule=Host:reach.bowtie.dev"
+      - "traefik.frontend.headers.SSLRedirect=true"
+      - "traefik.docker.network=bowtie-dev"
+    environment:
+      APP_ENV: development
+      NODE_ENV: development
+      REACT_APP_GOOGLE_FONTS_API_KEY: AIzaSyAcOaBLg0elTORAXH5tPHuqqiNQTrCCDY4
+
+  reach-ui-ngrok:
+    image: public.ecr.aws/bowtie/ngrok
+    networks:
+      - dev
+    environment:
+      NGROK_PROTOCOL: http
+      NGROK_PORT: 3000
+      NGROK_TARGET: reach-ui
+
+volumes:
+  npm:
+  nodemodules:
+
+networks:
+  dev:
+    external:
+      name: bowtie-dev
