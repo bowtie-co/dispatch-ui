@@ -26,10 +26,12 @@ export const ShareContainer = (props) => {
     },
     logoStyle: {
       width: theme.brandLogoWidth || 300,
-      maxWidth: '100%'
+      maxWidth: '100%',
+      marginTop: 0
     },
     takeawayContent: {
-      backgroundImage: `url(${getThemeUploadUrl(theme.bgImage)})`
+      backgroundImage: `url(${getThemeUploadUrl(theme.bgImage)})`,
+      padding: '0 0 30px'
     },
     shareContent: {
       backgroundColor: theme.brandColor2,
@@ -88,6 +90,13 @@ export const ShareContainer = (props) => {
         <meta property='og:title' content={theme.pageMetaTitle} />
         <meta property='og:description' content={theme.pageMetaDescription} />
         <meta property='og:image' content={handleSocialShareImage()} />
+
+        {/* <!-- Twitter share data --> */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@Ringling" />
+        <meta name="twitter:title" content={theme.pageMetaTitle} />
+        <meta name="twitter:description" content={theme.pageMetaDescription} />
+        <meta name="twitter:image" content={handleSocialShareImage()} />
 
         {/* Include dynamically built theme css overrides */}
         {theme.headerFont && <link rel="stylesheet" href={`https://fonts.googleapis.com/css?family=${theme.headerFont.family}`} />}
