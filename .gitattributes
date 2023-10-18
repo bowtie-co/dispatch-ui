@@ -1,3 +1,3 @@
-# Force CRLF line endings for all text files
-* text eol=crlf
+# Force LF line endings for all text files
+* text eol=lf
 
