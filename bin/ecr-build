@@ -1,0 +1,38 @@
+#!/bin/bash
+
+AWS_ECR_BASE=$AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com
+AWS_ECR_URL=$AWS_ECR_BASE/$ECR_REPO_SLUG
+
+# Helper to tag & push docker image (argument: tag = $1)
+tag_and_push() {
+    tag="${1//\//-}"
+    echo "Tagging Docker Image: '$tag' ..."
+    docker tag $ECR_REPO_SLUG:latest $AWS_ECR_URL:$tag
+
+    echo "Pushing Docker Image: '$tag' ..."
+    docker push $AWS_ECR_URL:$tag
+}
+
+# Login to ECR
+aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ECR_BASE
+
+docker pull $AWS_ECR_URL:$GITHUB_SHA
+
+if [[ "$?" == "0" ]]; then
+    # Tag already exists for this commit, retag as alias...
+    docker tag $AWS_ECR_URL:$GITHUB_SHA $ECR_REPO_SLUG:latest
+else
+    # Build docker image and fresh tag
+    docker build -t $ECR_REPO_SLUG .
+fi
+
+if [[ "$GITHUB_HEAD_REF" != "" ]]; then
+    tag_and_push $GITHUB_HEAD_REF
+fi
+
+if [[ "$GITHUB_REF_NAME" != "" ]]; then
+    tag_and_push $GITHUB_REF_NAME
+fi
+
+tag_and_push $GITHUB_SHA
+tag_and_push "latest"

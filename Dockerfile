@@ -1,13 +1,13 @@
 ####################################################
 # Base node image for dev + builder
 ####################################################
-FROM public.ecr.aws/bowtie/node:18-alpine as dev
+FROM node:18-alpine AS dev
 
-LABEL maintainer "Charlie McClung <charlie@bowtie.co>"
+LABEL maintainer="Charlie McClung <charlie@bowtie.co>"
 
-ENV BASE_DIR /app
-ENV NODE_OPTIONS --openssl-legacy-provider
-ENV GENERATE_SOURCEMAP false
+ENV BASE_DIR=/app
+ENV NODE_OPTIONS=--openssl-legacy-provider
+ENV GENERATE_SOURCEMAP=false
 
 RUN mkdir -p ${BASE_DIR} && \
     npm i -g npm && \
@@ -29,11 +29,11 @@ CMD [ "npm", "start" ]
 ####################################################
 # run builder from dev for both staging & production
 ####################################################
-FROM dev as builder
+FROM dev AS builder
 
-LABEL maintainer "Charlie McClung <charlie@bowtie.co>"
+LABEL maintainer="Charlie McClung <charlie@bowtie.co>"
 
-ENV BUILD_DIR /build
+ENV BUILD_DIR=/build
 
 RUN mkdir -p ${BUILD_DIR}
 
@@ -46,11 +46,11 @@ RUN export $(cat .env.production | xargs) && npm run build && mv build ${BUILD_D
 ####################################################
 # run staging/production environment (based on ENV)
 ####################################################
-FROM public.ecr.aws/bowtie/nginx:alpine
+FROM nginx:alpine
 
-LABEL maintainer "Charlie McClung <charlie@bowtie.co>"
+LABEL maintainer="Charlie McClung <charlie@bowtie.co>"
 
-ENV BUILD_DIR /build
+ENV BUILD_DIR=/build
 
 RUN rm -rf /etc/nginx/conf.d && \
     apk add --no-cache bash

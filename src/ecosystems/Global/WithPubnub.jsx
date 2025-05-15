@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { WithChildren } from '../';
-import { pubnub } from '../../lib';
+// import { pubnub } from '../../lib';
 // import { createOrUpdate } from '../../lib/helpers';
+
+const pubnub = false;
 
 export const WithServicePubnub = ({ children, ...props }) => {
   const { serviceName } = props;

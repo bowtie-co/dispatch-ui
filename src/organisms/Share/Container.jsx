@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { AppLogo, AppSanitizeHTML } from '../../atoms';
-import { PostImage, ShareTools } from '../../molecules';
+import { PostImage, ShareTools, ShareLink } from '../../molecules';
 import { AppFooter } from '../../organisms';
 import { Helmet } from "react-helmet";
 const { REACT_APP_API_ROOT } = process.env;
@@ -93,6 +93,7 @@ export const ShareContainer = (props) => {
 
         {/* <!-- Twitter share data --> */}
         <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@Xfinity" />
         <meta name="twitter:title" content={theme.pageMetaTitle} />
         <meta name="twitter:description" content={theme.pageMetaDescription} />
         <meta name="twitter:image" content={handleSocialShareImage()} />
@@ -111,7 +112,6 @@ export const ShareContainer = (props) => {
               <AppLogo className={'logo-responsive'} src={getThemeUploadUrl(theme.brandLogo1)} style={styles.logoStyle} />
             </a>
           )}
-
           <PostImage {...props} theme={theme} />
         </div>
       </div>
@@ -125,6 +125,7 @@ export const ShareContainer = (props) => {
               .primary-text a { color: ${styles.linkContent.color} }
             `}} />
           </div>
+          <ShareLink styles={styles} {...props} />
           {theme.swapShareContent && (
             <ShareTools {...props} />
           )}

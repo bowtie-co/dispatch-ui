@@ -31,7 +31,7 @@ export const AdminNav = (props) => {
   return (
     <Navbar className={'AdminNav'}>
       <div className='identity'>
-        <img src={logo} className='logo img' alt='dispatch-logo'></img>
+        <img src={logo} className='logo img' alt='admin-logo'></img>
         <h2>Dispatch</h2>
       </div>
       <Nav>

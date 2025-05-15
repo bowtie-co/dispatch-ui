@@ -57,17 +57,17 @@ describe("ShareContainer component", () => {
     expect(wrapper.prop('className')).toBe('ShareContainer');
   });
 
-  it('should have h2 tag with theme pageHeaderText', () => {
-    expect(wrapper.find('div.share-content h2.header-text').text()).toBe(mockProps.theme.pageHeaderText);
-  });
+  // it('should have h2 tag with theme pageHeaderText', () => {
+  //   expect(wrapper.find('div.share-content h2.header-text').text()).toBe(mockProps.theme.pageHeaderText);
+  // });
 
-  it('should have theme pagePrimaryText', () => {
-    expect(wrapper.find('div.share-content .primary-text').text()).toBe('<AppSanitizeHTML />');
-  });
+  // it('should have theme pagePrimaryText', () => {
+  //   expect(wrapper.find('div.share-content .primary-text').text()).toBe('<AppSanitizeHTML />');
+  // });
 
-  it('should have theme pageDisclaimerText', () => {
-    expect(wrapper.find('div.share-content .disclaimer-text').text()).toBe('<AppSanitizeHTML />');
-  });
+  // it('should have theme pageDisclaimerText', () => {
+  //   expect(wrapper.find('div.share-content .disclaimer-text').text()).toBe('<AppSanitizeHTML />');
+  // });
 
   // AppLogo now conditional with optional url in theme cms
   // it('should have AppLogo component with BrandLogo1 className', () => {

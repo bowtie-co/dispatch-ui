@@ -9,6 +9,27 @@
   }
 }
 
+.shareLink{
+  display: none;
+  @media (max-width: 768px){
+    display: block;
+  }
+  a {
+    text-decoration: none !important;
+  }
+}
+.mobile-hide{
+  display: block;
+  @media (max-width: 768px){
+    display: none;
+  }
+}
+.hidden-link{
+  width: 0 !important;
+  height: 0 !important;
+  z-index: -10;
+  position: absolute;
+}
 .ShareTools {
   width: 100%;
   max-width: 280px;
@@ -17,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  cursor: pointer;
   .shareTool-item {
     text-decoration: none;
     max-height: 70px;
@@ -42,4 +63,8 @@
       max-width: 100%;
     }
   }
+}
+.wrapper-share {
+  color: rgb(255, 255, 255) !important;
+  outline: 1px solid rgb(255, 255, 255) !important;
 }

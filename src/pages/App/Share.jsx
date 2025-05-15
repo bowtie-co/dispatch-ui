@@ -16,6 +16,7 @@ export const PageShare = (props) => {
   const [ theme, setTheme ] = useState(DEFAULT_THEME);
   const [ post, setPost ] = useState();
   const [ postNotFound, setPostNotFound ] = useState(false);
+  const [ postDownloadUrl, setPostDownloadUrl ] = useState();
 
   useEffect(() => {
     api.get('themes/active').then(({ data }) => {
@@ -29,6 +30,14 @@ export const PageShare = (props) => {
       // Only submit GA page view if post found
       ga.pageView(`share/${postId}`);
     }).catch(() => setPostNotFound(true));
+
+    api.get(`posts/${postId}/download`).then(({ data }) => {
+      if (data && data.downloadUrl) {
+        setPostDownloadUrl(data.downloadUrl);
+      }
+    }).catch((err) => {
+      console.warn('Error getting download url for post', err);
+    });
   }, [ postId ]);
 
   useEffect(() => {
@@ -36,7 +45,7 @@ export const PageShare = (props) => {
 
     if (token) {
       storage.set('token', token);
-    }
+    };
 
     if (action) {
       if (action === 'destroy') {
@@ -47,7 +56,7 @@ export const PageShare = (props) => {
           }).catch((err) => {
             console.error(err);
           });
-        }
+        };
       } else if (action === 'unsubscribe') {
         // TODO: Should general unsubscribe logic be move to "higher" level? (not share page)
         if (window.confirm('Are you sure you want to unsubscribe?')) {
@@ -64,7 +73,7 @@ export const PageShare = (props) => {
     }
   }, [ queryParams, postId ]);
 
-  const postProps = { post, postId, theme };
+  const postProps = { post, postId, theme, postDownloadUrl };
 
   return (
     <div className={`brand`}>

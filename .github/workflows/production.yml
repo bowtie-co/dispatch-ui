@@ -1,0 +1,53 @@
+name: Production
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_ACCOUNT: '664544941864'
+  AWS_REGION: us-east-2
+  ECR_REPO_SLUG: sls-ci-reach-nginx-ui-root-us-east-2-repo
+  ECS_CLUSTER: reach-cluster-production-reachclusterproduction84BEC687-gDKsJIwpPeSc
+  DEPLOY_STACKS: each-use2-reach-nginx-ui-wifi-prod,reach-use2-reach-nginx-ui-snickers-prod
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::664544941864:role/sls-ci-reach-nginx-ui-root-us-east-2-build-project-role
+          role-session-name: github-build-ui
+          aws-region: us-east-2
+
+      - name: Tag and push
+        run: bin/ecr-build
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::664544941864:role/sls-ci-reach-nginx-ui-root-us-east-2-update-stack-role
+          role-session-name: github-deploy-ui-production
+          aws-region: us-east-2
+
+      - name: Deploy
+        run: bin/ecs-deploy $GITHUB_REF_NAME

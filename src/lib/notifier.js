@@ -1,6 +1,6 @@
 import EventEmitter from 'eventemitter2';
 import uuid from 'uuid/v1';
-import PubNub from 'pubnub';
+// import PubNub from 'pubnub';
 import { airbrake } from './airbrake';
 import { storage } from './storage';
 
@@ -52,7 +52,7 @@ class Notifier extends EventEmitter {
 
   userChange (user) {
     if (!this.user || !user) {
-      this.resetPubnub();
+      // this.resetPubnub();
     }
 
     this.user = user;
@@ -60,27 +60,27 @@ class Notifier extends EventEmitter {
   }
 
   init () {
-    if (!this.pubnub) this.resetPubnub();
+    // if (!this.pubnub) this.resetPubnub();
 
-    if (this.user) {
-      if (this.user.channels && JSON.stringify(this.channels) !== JSON.stringify(this.user.channels)) {
-        this.channels = this.user.channels;
-        this.subscribe();
-      }
-    } else {
-      // NO USER TO INIT NOTIFIER PUBNUB
-      // console.warn('NO USER TO INIT NOTIFIER PUBNUB')
-    }
+    // if (this.user) {
+    //   if (this.user.channels && JSON.stringify(this.channels) !== JSON.stringify(this.user.channels)) {
+    //     this.channels = this.user.channels;
+    //     this.subscribe();
+    //   }
+    // } else {
+    //   // NO USER TO INIT NOTIFIER PUBNUB
+    //   // console.warn('NO USER TO INIT NOTIFIER PUBNUB')
+    // }
   }
 
-  resetPubnub () {
-    this.channels = {};
-    if (this.pubnub) this.pubnub.destroy();
-    if (this.user) {
-      this.authorize();
-      this.listen();
-    }
-  }
+  // resetPubnub () {
+  //   this.channels = {};
+  //   if (this.pubnub) this.pubnub.destroy();
+  //   if (this.user) {
+  //     this.authorize();
+  //     this.listen();
+  //   }
+  // }
 
   handleMessage (message) {
     // handle message
@@ -125,22 +125,22 @@ class Notifier extends EventEmitter {
   }
 
   authorize () {
-    if (process.env.REACT_APP_PUBNUB_PUBLISH_KEY && process.env.REACT_APP_PUBNUB_SUBSCRIBE_KEY) {
-      this.pubnub = new PubNub({
-        publishKey: process.env.REACT_APP_PUBNUB_PUBLISH_KEY,
-        subscribeKey: process.env.REACT_APP_PUBNUB_SUBSCRIBE_KEY,
-        authKey: process.env.REACT_APP_PUBNUB_AUTH_KEY,
-        ssl: true
-      });
-    }
+    // if (process.env.REACT_APP_PUBNUB_PUBLISH_KEY && process.env.REACT_APP_PUBNUB_SUBSCRIBE_KEY) {
+    //   this.pubnub = new PubNub({
+    //     publishKey: process.env.REACT_APP_PUBNUB_PUBLISH_KEY,
+    //     subscribeKey: process.env.REACT_APP_PUBNUB_SUBSCRIBE_KEY,
+    //     authKey: process.env.REACT_APP_PUBNUB_AUTH_KEY,
+    //     ssl: true
+    //   });
+    // }
   }
 
   listen () {
-    this.pubnub.addListener({
-      message: this.handleMessage.bind(this),
-      presence: this.handlePresence.bind(this),
-      status: this.handleStatus.bind(this)
-    });
+    // this.pubnub.addListener({
+    //   message: this.handleMessage.bind(this),
+    //   presence: this.handlePresence.bind(this),
+    //   status: this.handleStatus.bind(this)
+    // });
   }
 
   readChannels () {
@@ -150,33 +150,33 @@ class Notifier extends EventEmitter {
     return readOnlyChannels.concat(readWriteChannels);
   }
 
-  subscribe () {
-    this.pubnub.subscribe({
-      channels: this.readChannels()
-    });
-  }
+  // subscribe () {
+  //   this.pubnub.subscribe({
+  //     channels: this.readChannels()
+  //   });
+  // }
 
-  unsubscribe () {
-    if (!this.pubnub) return;
+  // unsubscribe () {
+  //   if (!this.pubnub) return;
 
-    this.pubnub.unsubscribe({
-      channels: this.readChannels()
-    });
-  }
+  //   this.pubnub.unsubscribe({
+  //     channels: this.readChannels()
+  //   });
+  // }
 
-  publish (channel, message) {
-    return this.pubnub.publish({
-      message,
-      channel
-    });
-  }
+  // publish (channel, message) {
+  //   return this.pubnub.publish({
+  //     message,
+  //     channel
+  //   });
+  // }
 
-  pnHistory (channel, count = 30) {
-    return this.pubnub.history({
-      channel,
-      count
-    });
-  }
+  // pnHistory (channel, count = 30) {
+  //   return this.pubnub.history({
+  //     channel,
+  //     count
+  //   });
+  // }
 
   load () {
     const saved = storage.get('messages');

@@ -1,0 +1,53 @@
+name: Staging
+
+on:
+  push:
+    branches: ['main']
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_ACCOUNT: '664544941864'
+  AWS_REGION: us-east-2
+  ECR_REPO_SLUG: sls-ci-reach-nginx-ui-root-us-east-2-repo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::664544941864:role/sls-ci-reach-nginx-ui-root-us-east-2-build-project-role
+          role-session-name: github-build-ui
+          aws-region: us-east-2
+
+      - name: Run and test
+        run: bin/ci
+
+      - name: Build, tag and push
+        run: bin/ecr-build
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::664544941864:role/sls-ci-reach-nginx-ui-root-us-east-2-update-stack-role
+          role-session-name: github-deploy-ui-staging
+          aws-region: us-east-2
+
+      - name: Deploy
+        run: bin/ecs-deploy $GITHUB_SHA

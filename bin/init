@@ -1,3 +1,4 @@
 #!/bin/bash
 
 ([ ! -e .git/hooks/pre-push ] || rm .git/hooks/pre-push) && ln -s ../../bin/pre-push .git/hooks
+[ -f .env.ngrok ] || touch .env.ngrok

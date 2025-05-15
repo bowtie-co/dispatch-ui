@@ -1,0 +1,43 @@
+name: CI - Build, Lint, Test
+on:
+  # workflow_dispatch:
+  # push:
+  #   branches: [ main ]
+  pull_request:
+    types: [ opened, synchronize, reopened, ready_for_review ]
+
+# Cancel runs for the same PR when a new commit is pushed
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+# Need these for our configuration of aws creds
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_ACCOUNT: '664544941864'
+  AWS_REGION: us-east-2
+  ECR_REPO_SLUG: sls-ci-reach-nginx-ui-root-us-east-2-repo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout code
+      - uses: actions/checkout@v3
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::664544941864:role/sls-ci-reach-nginx-ui-root-us-east-2-build-project-role
+          role-session-name: github-actions-build
+          aws-region: us-east-2
+
+      - name: Run and test
+        run: bin/ci
+
+      - name: Build, tag and push to ECR
+        run: bin/ecr-build

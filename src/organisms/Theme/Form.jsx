@@ -568,7 +568,7 @@ export const ThemeForm = (props) => {
 
             <Card>
             <FormGroup row>
-                <Label md={4} lg={3} for='enableDownloadLink'>Enable Download Link</Label>
+                <Label md={4} lg={3} for='enableDownloadLink'>Enable Share Link</Label>
                 <Col md={8}>
                   <Input key='enableDownloadLink' type='checkbox' name='enableDownloadLink' id='enableDownloadLink' onChange={(e) => setEnableDownloadLink(e.target.checked)} checked={enableDownloadLink}/>
                 </Col>

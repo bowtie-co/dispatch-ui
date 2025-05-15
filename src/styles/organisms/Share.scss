@@ -10,20 +10,14 @@
   }
 
   .takeaway-content {
-    padding: 30px 0px;
+    padding: 30px 0px 0px;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 0px !important;
   }
 
   .share-content {
-    //border-top-left-radius: 50%;
-    //border-top-right-radius: 50%;
-    //width: 200%;
-    //left: -50%;
-    //top: -40px;
-    //bottom: -100px;
-    //margin-bottom: -40px;
-    padding-top: 2.5rem;
+    padding-top: 0;
     height: 100%;
     position: relative;
     .disclaimer-text {

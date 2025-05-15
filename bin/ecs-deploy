@@ -1,0 +1,47 @@
+#!/bin/bash
+
+set -e
+
+ECS_TAG=$1
+ECS_CLUSTER=${ECS_CLUSTER:-"reach-cluster-staging-reachclusterstaging2E63818D-19udXetsWK6L"}
+DEPLOY_STACKS=${DEPLOY_STACKS:-"reach-use2-reach-nginx-ui-staging"}
+SNS_ARN=${SNS_ARN:-"arn:aws:sns:us-east-2:664544941864:sls-ci-reach-nginx-ui-root-us-east-2-stack-change"}
+ROLE_ARN=${ROLE_ARN:-"arn:aws:iam::664544941864:role/sls-ci-reach-nginx-ui-root-us-east-2-update-service-role"}
+FIRST_STACK=$(echo $DEPLOY_STACKS | sed 's/,.*//g')
+
+verify_tag() {
+    tag="${1//\//-}"
+
+    # Verify image has requested tag
+    echo "VERIFY TAG: $tag ..."
+    aws ecr describe-images --repository-name $ECR_REPO_SLUG --image-ids=imageTag=$tag
+}
+
+deploy_stack_tag() {
+    stack=$1
+    tag="${2//\//-}"
+
+    # Deploy tag to stack (update cloudformation params)
+    echo "DEPLOY: $tag -> $stack"
+    aws cloudformation update-stack --use-previous-template --capabilities CAPABILITY_IAM --stack-name $stack --parameters "ParameterKey=Tag,ParameterValue=$tag" --notification-arns $SNS_ARN --role-arn $ROLE_ARN
+}
+
+
+if [[ "$ECS_TAG" == "migrate" ]]; then
+    echo "Waiting for stack to complete: $FIRST_STACK ..."
+    aws cloudformation wait stack-update-complete --stack-name $FIRST_STACK
+
+    # Find latest task definition for "-db-migrate"
+    task=$(aws ecs list-task-definitions | grep "${FIRST_STACK}-db-migrate" | tail -n 1 | sed 's/.*task-definition\///g' | sed 's/",.*//g')
+
+    if [[ "$task" != "" ]]; then
+        echo "Running database migration task: $task ..."
+        aws ecs run-task  --cluster $ECS_CLUSTER --task-definition $task --launch-type="EC2"
+    fi
+else
+    verify_tag $ECS_TAG
+
+    for stack in ${DEPLOY_STACKS//,/ }; do
+        deploy_stack_tag $stack $ECS_TAG
+    done
+fi
