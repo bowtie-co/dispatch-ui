@@ -3,6 +3,4 @@
 docker compose -f docker-compose-ci.yml up --build -d
 docker compose -f docker-compose-ci.yml run --rm reach-ui npm install
 docker compose -f docker-compose-ci.yml run --rm reach-ui npm run lint
-# docker compose -f docker-compose-ci.yml run --rm reach-ui bin/cc-test-reporter before-build
 docker compose -f docker-compose-ci.yml run --rm reach-ui npm test
-# docker compose -f docker-compose-ci.yml run --rm reach-ui bin/cc-test-reporter after-build

@@ -18,7 +18,7 @@ env:
   AWS_REGION: us-east-2
   ECR_REPO_SLUG: sls-ci-reach-nginx-ui-root-us-east-2-repo
   ECS_CLUSTER: reach-cluster-production-reachclusterproduction84BEC687-gDKsJIwpPeSc
-  DEPLOY_STACKS: each-use2-reach-nginx-ui-wifi-prod,reach-use2-reach-nginx-ui-snickers-prod
+  DEPLOY_STACKS: reach-nginx-ui-wifi-prod,reach-nginx-ui-snickers-prod
 
 jobs:
   build:

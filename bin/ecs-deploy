@@ -4,7 +4,7 @@ set -e
 
 ECS_TAG=$1
 ECS_CLUSTER=${ECS_CLUSTER:-"reach-cluster-staging-reachclusterstaging2E63818D-19udXetsWK6L"}
-DEPLOY_STACKS=${DEPLOY_STACKS:-"reach-use2-reach-nginx-ui-staging"}
+DEPLOY_STACKS=${DEPLOY_STACKS:-"reach-nginx-ui-staging"}
 SNS_ARN=${SNS_ARN:-"arn:aws:sns:us-east-2:664544941864:sls-ci-reach-nginx-ui-root-us-east-2-stack-change"}
 ROLE_ARN=${ROLE_ARN:-"arn:aws:iam::664544941864:role/sls-ci-reach-nginx-ui-root-us-east-2-update-service-role"}
 FIRST_STACK=$(echo $DEPLOY_STACKS | sed 's/,.*//g')

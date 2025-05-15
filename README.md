@@ -1,6 +1,3 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/abe9f640191c5b452f1e/maintainability)](https://codeclimate.com/repos/61b24c0931a49e01770153f9/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/abe9f640191c5b452f1e/test_coverage)](https://codeclimate.com/repos/61b24c0931a49e01770153f9/test_coverage)
-
 # reach-react-ui
 
 Helios Reach

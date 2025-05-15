@@ -11,4 +11,3 @@ services:
       CI: 'true'
       APP_ENV: test
       NODE_ENV: test
-      CC_TEST_REPORTER_ID: fa6a2f220a9bea2f75f675e9c979c467dfb0b96f67a34c9b5a5fe37656c3c44e
