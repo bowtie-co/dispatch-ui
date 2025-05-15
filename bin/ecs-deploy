@@ -27,21 +27,12 @@ deploy_stack_tag() {
 }
 
 
-if [[ "$ECS_TAG" == "migrate" ]]; then
-    echo "Waiting for stack to complete: $FIRST_STACK ..."
-    aws cloudformation wait stack-update-complete --stack-name $FIRST_STACK
+# EXAMPLE: Wait for stack(s) to complete update
+# echo "Waiting for stack to complete: $FIRST_STACK ..."
+# aws cloudformation wait stack-update-complete --stack-name $FIRST_STACK
 
-    # Find latest task definition for "-db-migrate"
-    task=$(aws ecs list-task-definitions | grep "${FIRST_STACK}-db-migrate" | tail -n 1 | sed 's/.*task-definition\///g' | sed 's/",.*//g')
+verify_tag $ECS_TAG
 
-    if [[ "$task" != "" ]]; then
-        echo "Running database migration task: $task ..."
-        aws ecs run-task  --cluster $ECS_CLUSTER --task-definition $task --launch-type="EC2"
-    fi
-else
-    verify_tag $ECS_TAG
-
-    for stack in ${DEPLOY_STACKS//,/ }; do
-        deploy_stack_tag $stack $ECS_TAG
-    done
-fi
+for stack in ${DEPLOY_STACKS//,/ }; do
+    deploy_stack_tag $stack $ECS_TAG
+done
