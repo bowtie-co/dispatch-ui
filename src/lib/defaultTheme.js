@@ -85,6 +85,7 @@ const defaultTheme = {
   pageDisclaimerText: 'Share your picture with friends and family!',
   emailSubjectText: 'Thanks for your submission.',
   pageMetaTitle: 'New Post Submission',
+  pageMetaHandle: '@Example',
   pageMetaDescription: 'User has submitted a new post',
   brandFbAcct: 'https://www.facebook.com/warbyparker/',
   brandIgAcct: 'https://www.instagram.com/warbyparker/?hl=en',

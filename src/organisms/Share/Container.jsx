@@ -93,7 +93,7 @@ export const ShareContainer = (props) => {
 
         {/* <!-- Twitter share data --> */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@Xfinity" />
+        <meta name="twitter:site" content={theme.pageMetaHandle} />
         <meta name="twitter:title" content={theme.pageMetaTitle} />
         <meta name="twitter:description" content={theme.pageMetaDescription} />
         <meta name="twitter:image" content={handleSocialShareImage()} />

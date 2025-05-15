@@ -100,6 +100,7 @@ export const ThemeForm = (props) => {
   const [ pageDisclaimerText, setPageDisclaimerText ] = useState(theme.pageDisclaimerText);
   const [ emailSubjectText, setEmailSubjectText ] = useState(theme.emailSubjectText);
   const [ pageMetaTitle, setPageMetaTitle ] = useState(theme.pageMetaTitle);
+  const [ pageMetaHandle, setPageMetaHandle ] = useState(theme.pageMetaHandle);
   const [ pageMetaDescription, setPageMetaDescription ] = useState(theme.pageMetaDescription);
   const [ socialShareImage, setSocialShareImage ] = useState(theme.socialShareImage);
   // const [ brandFbAcct, setBrandFbAcct ] = useState(theme.brandFbAcct);
@@ -152,6 +153,7 @@ export const ThemeForm = (props) => {
     pageDisclaimerText,
     emailSubjectText,
     pageMetaTitle,
+    pageMetaHandle,
     pageMetaDescription,
     socialShareImage,
     // brandFbAcct,
@@ -496,6 +498,12 @@ export const ThemeForm = (props) => {
                 <Label md={4} lg={3} for='pageMetaTitle'>Page Meta Title</Label>
                 <Col md={8}>
                   <Input key='pageMetaTitle' type='text' name='pageMetaTitle' id='pageMetaTitle' onChange={(e) => setPageMetaTitle(e.target.value)} defaultValue={pageMetaTitle}/>
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label md={4} lg={3} for='pageMetaHandle'>Page Meta Handle</Label>
+                <Col md={8}>
+                  <Input key='pageMetaHandle' type='text' name='pageMetaHandle' id='pageMetaHandle' onChange={(e) => setPageMetaHandle(e.target.value)} defaultValue={pageMetaHandle} placeholder="@Example" />
                 </Col>
               </FormGroup>
               <FormGroup row>
