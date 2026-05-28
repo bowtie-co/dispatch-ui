@@ -111,7 +111,6 @@ export const ThemeForm = (props) => {
   const [ downloadIconImage, setDownloadIconImage ] = useState(theme.downloadIconImage);
   const [ swapShareContent, setSwapShareContent ] = useState(theme.swapShareContent);
 
-  const [ enableDownloadLink, setEnableDownloadLink ] = useState(theme.enableDownloadLink);
   const [ approvalQueueApproveMsg, setApprovalQueueApproveMsg ] = useState(theme.approvalQueueApproveMsg);
   const [ approvalQueueDenyMsg, setApprovalQueueDenyMsg ] = useState(theme.approvalQueueDenyMsg);
   const [ primaryHeaderTextFont, setPrimaryHeaderTextFont ] = useState(theme.headerFont || defaultFont);
@@ -163,7 +162,7 @@ export const ThemeForm = (props) => {
     twitterIconImage,
     downloadIconImage,
     swapShareContent,
-    enableDownloadLink,
+    enableDownloadLink: true,
     approvalQueueApproveMsg,
     approvalQueueDenyMsg,
     headerFont: primaryHeaderTextFont,
@@ -570,15 +569,6 @@ export const ThemeForm = (props) => {
                 </Label>
                 <Col md={8}>
                   <Input key='swapShareContent' type='checkbox' name='swapShareContent' id='swapShareContent' onChange={(e) => setSwapShareContent(e.target.checked)} checked={swapShareContent} />
-                </Col>
-              </FormGroup>
-            </Card>
-
-            <Card>
-            <FormGroup row>
-                <Label md={4} lg={3} for='enableDownloadLink'>Enable Share Link</Label>
-                <Col md={8}>
-                  <Input key='enableDownloadLink' type='checkbox' name='enableDownloadLink' id='enableDownloadLink' onChange={(e) => setEnableDownloadLink(e.target.checked)} checked={enableDownloadLink}/>
                 </Col>
               </FormGroup>
             </Card>

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../dispatch-api"
+		},
+		{
+			"path": "../helios-sls-ci"
+		}
+	],
+	"settings": {}
+}

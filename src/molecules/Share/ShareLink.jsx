@@ -140,32 +140,28 @@ export const ShareLink = (props) => {
   };
 
   return (
-    <>
-      {theme.enableDownloadLink && (
-        <div className='shareLink'>
-        {/* invisible. to be clicked by ref() */}
-          <a className={'shareTool-item'} ref={linkRef} rel="noopener noreferrer" href={postDownloadUrl} download />
-          {/* visible. clicked by user to start download and send GA */}
-          { !loaded ? (
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-              <Spinner />
-              <AppSanitizeHTML html={'Enabling Share...'}  />
+    <div className='shareLink'>
+      {/* invisible. to be clicked by ref() */}
+      <a className={'shareTool-item'} ref={linkRef} rel="noopener noreferrer" href={postDownloadUrl} download />
+      {/* visible. clicked by user to start download and send GA */}
+      { !loaded ? (
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <Spinner />
+          <AppSanitizeHTML html={'Enabling Share...'}  />
 
-            </div>
-            ) : (
-            <a style={{marginBottom: '2em', backgroundColor: 'red', height: '60px', width: '100px'}} id='download' className={'shareTool-item'} rel="noopener noreferrer" onClick={() => sendGAandDownload(post.shareUrl)}>
-              {/* <img src={`${theme.baseUploadUrl}/${theme.downloadIconImage}`} alt="Download Social Link" /> */}
-              <div className='primary-text' style={styles.bodyContent}>
-                <AppSanitizeHTML html={'CLICK TO SHARE'} className={'btn btn-outline wrapper-share'} />
-
-                <style dangerouslySetInnerHTML={{__html: `
-                  .primary-text a { color: ${styles.linkContent.color} }
-                `}} />
-              </div>
-            </a>
-          ) }
         </div>
-      )}
-    </>
+        ) : (
+        <a style={{marginBottom: '2em', backgroundColor: 'red', height: '60px', width: '100px'}} id='download' className={'shareTool-item'} rel="noopener noreferrer" onClick={() => sendGAandDownload(post.shareUrl)}>
+          {/* <img src={`${theme.baseUploadUrl}/${theme.downloadIconImage}`} alt="Download Social Link" /> */}
+          <div className='primary-text' style={styles.bodyContent}>
+            <AppSanitizeHTML html={'CLICK TO SHARE'} className={'btn btn-outline wrapper-share'} />
+
+            <style dangerouslySetInnerHTML={{__html: `
+              .primary-text a { color: ${styles.linkContent.color} }
+            `}} />
+          </div>
+        </a>
+      ) }
+    </div>
   );
 };
