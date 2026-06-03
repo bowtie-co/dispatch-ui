@@ -110,6 +110,7 @@ export const ThemeForm = (props) => {
   const [ twitterIconImage, setTwitterIconImage ] = useState(theme.twitterIconImage);
   const [ downloadIconImage, setDownloadIconImage ] = useState(theme.downloadIconImage);
   const [ swapShareContent, setSwapShareContent ] = useState(theme.swapShareContent);
+  const [ shareButtonText, setShareButtonText ] = useState(theme.shareButtonText);
 
   const [ approvalQueueApproveMsg, setApprovalQueueApproveMsg ] = useState(theme.approvalQueueApproveMsg);
   const [ approvalQueueDenyMsg, setApprovalQueueDenyMsg ] = useState(theme.approvalQueueDenyMsg);
@@ -162,6 +163,7 @@ export const ThemeForm = (props) => {
     twitterIconImage,
     downloadIconImage,
     swapShareContent,
+    shareButtonText,
     enableDownloadLink: true,
     approvalQueueApproveMsg,
     approvalQueueDenyMsg,
@@ -541,6 +543,12 @@ export const ThemeForm = (props) => {
           </Card> */}
 
             <Card>
+              <FormGroup row>
+                <Label md={4} lg={3} for='shareButtonText'>Share Button Text</Label>
+                <Col md={8}>
+                  <Input key='shareButtonText' type='text' name='shareButtonText' id='shareButtonText' onChange={(e) => setShareButtonText(e.target.value)} defaultValue={shareButtonText} placeholder='Click to Share' />
+                </Col>
+              </FormGroup>
               <FormGroup row>
                 <Label md={4} lg={3} for='pageDisclaimerText'>Share Text</Label>
                 <Col md={8}>

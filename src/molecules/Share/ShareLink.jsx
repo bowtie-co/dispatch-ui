@@ -65,7 +65,7 @@ export const ShareLink = (props) => {
       ) : (
         <a style={{marginBottom: '2em', backgroundColor: 'red', height: '60px', width: '100px'}} id='download' className={'shareTool-item'} rel="noopener noreferrer" onClick={() => sendGAandDownload(post.shareUrl)}>
           <div className='primary-text' style={styles.bodyContent}>
-            <AppSanitizeHTML html={'CLICK TO SHARE'} className={'btn btn-outline wrapper-share'} />
+            <AppSanitizeHTML html={theme.shareButtonText || 'Click to Share'} className={'btn btn-outline wrapper-share'} />
             <style dangerouslySetInnerHTML={{__html: `
               .primary-text a { color: ${styles.linkContent.color} }
             `}} />
