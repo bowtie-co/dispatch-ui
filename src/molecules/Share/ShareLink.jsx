@@ -24,7 +24,12 @@ export const ShareLink = (props) => {
     fetch(postDownloadUrl)
       .then(response => response.blob())
       .then(blob => {
-        const filename = isVideo ? 'Dispatch_Video.mp4' : 'Dispatch_Image.jpg';
+        const sanitizedTitle = theme.shareTitleText
+          ? theme.shareTitleText.replace(/[^a-zA-Z0-9 ]/g, '').replace(/\s+/g, '_')
+          : null;
+        const filename = isVideo
+          ? `${sanitizedTitle || 'Dispatch_Video'}.mp4`
+          : `${sanitizedTitle || 'Dispatch_Image'}.jpg`;
         setMediaFile(new File([blob], filename, { type: blob.type }));
         setLoaded(true);
       })
@@ -35,7 +40,8 @@ export const ShareLink = (props) => {
 
   const sendGAandDownload = async (url) => {
     const eventName = eventHref('share_download');
-    const title = isVideo ? 'Dispatch Video' : 'Dispatch Image';
+    const defaultTitle = isVideo ? 'Dispatch Video' : 'Dispatch Image';
+    const title = theme.shareTitleText || defaultTitle;
     const text = 'Share your keepsake and tag us!';
     ga.pageView(eventName);
 
