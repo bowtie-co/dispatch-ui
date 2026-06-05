@@ -42,7 +42,7 @@ export const ShareLink = (props) => {
     const eventName = eventHref('share_download');
     const defaultTitle = isVideo ? 'Dispatch Video' : 'Dispatch Image';
     const title = theme.shareTitleText || defaultTitle;
-    const text = 'Share your keepsake and tag us!';
+    const text = theme.shareTagText || 'Share your keepsake and tag us!';
     ga.pageView(eventName);
 
     let data;
