@@ -111,6 +111,7 @@ export const ThemeForm = (props) => {
   const [ downloadIconImage, setDownloadIconImage ] = useState(theme.downloadIconImage);
   const [ swapShareContent, setSwapShareContent ] = useState(theme.swapShareContent);
   const [ shareButtonText, setShareButtonText ] = useState(theme.shareButtonText);
+  const [ shareTitleText, setShareTitleText ] = useState(theme.shareTitleText);
 
   const [ approvalQueueApproveMsg, setApprovalQueueApproveMsg ] = useState(theme.approvalQueueApproveMsg);
   const [ approvalQueueDenyMsg, setApprovalQueueDenyMsg ] = useState(theme.approvalQueueDenyMsg);
@@ -164,6 +165,7 @@ export const ThemeForm = (props) => {
     downloadIconImage,
     swapShareContent,
     shareButtonText,
+    shareTitleText,
     enableDownloadLink: true,
     approvalQueueApproveMsg,
     approvalQueueDenyMsg,
@@ -547,6 +549,12 @@ export const ThemeForm = (props) => {
                 <Label md={4} lg={3} for='shareButtonText'>Share Button Text</Label>
                 <Col md={8}>
                   <Input key='shareButtonText' type='text' name='shareButtonText' id='shareButtonText' onChange={(e) => setShareButtonText(e.target.value)} defaultValue={shareButtonText} placeholder='Click to Share' />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label md={4} lg={3} for='shareTitleText'>Share Title Text</Label>
+                <Col md={8}>
+                  <Input key='shareTitleText' type='text' name='shareTitleText' id='shareTitleText' onChange={(e) => setShareTitleText(e.target.value)} defaultValue={shareTitleText} placeholder='Dispatch Video / Dispatch Image' />
                 </Col>
               </FormGroup>
               <FormGroup row>
