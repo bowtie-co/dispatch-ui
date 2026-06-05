@@ -12,7 +12,7 @@ export const ThemeFileUpload = (props) => {
     return `${theme.baseUploadUrl}/${objectPath}`;
   }, [ theme ]);
 
-  const imageSet = (field) => field !== '';
+  const imageSet = (field) => typeof field === 'string' && field.trim() !== '';
 
   const onDrop = (acceptedFiles) => {
     async.each(acceptedFiles, (file, next) => {
