@@ -112,6 +112,7 @@ export const ThemeForm = (props) => {
   const [ swapShareContent, setSwapShareContent ] = useState(theme.swapShareContent);
   const [ shareButtonText, setShareButtonText ] = useState(theme.shareButtonText);
   const [ shareTitleText, setShareTitleText ] = useState(theme.shareTitleText);
+  const [ shareTagText, setShareTagText ] = useState(theme.shareTagText);
 
   const [ approvalQueueApproveMsg, setApprovalQueueApproveMsg ] = useState(theme.approvalQueueApproveMsg);
   const [ approvalQueueDenyMsg, setApprovalQueueDenyMsg ] = useState(theme.approvalQueueDenyMsg);
@@ -166,6 +167,7 @@ export const ThemeForm = (props) => {
     swapShareContent,
     shareButtonText,
     shareTitleText,
+    shareTagText,
     enableDownloadLink: true,
     approvalQueueApproveMsg,
     approvalQueueDenyMsg,
@@ -552,15 +554,21 @@ export const ThemeForm = (props) => {
                 </Col>
               </FormGroup>
               <FormGroup row>
+                <Label md={4} lg={3} for='pageDisclaimerText'>Page Share Text (disclaimer)</Label>
+                <Col md={8}>
+                  <Input key='pageDisclaimerText' type='textarea' name='pageDisclaimerText' id='pageDisclaimerText' onChange={(e) => setPageDisclaimerText(e.target.value)} defaultValue={pageDisclaimerText}/>
+                </Col>
+              </FormGroup>
+              <FormGroup row>
                 <Label md={4} lg={3} for='shareTitleText'>Share Title Text</Label>
                 <Col md={8}>
                   <Input key='shareTitleText' type='text' name='shareTitleText' id='shareTitleText' onChange={(e) => setShareTitleText(e.target.value)} defaultValue={shareTitleText} placeholder='Dispatch Video / Dispatch Image' />
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label md={4} lg={3} for='pageDisclaimerText'>Share Text</Label>
+                <Label md={4} lg={3} for='shareTagText'>Share Tag Text</Label>
                 <Col md={8}>
-                  <Input key='pageDisclaimerText' type='textarea' name='pageDisclaimerText' id='pageDisclaimerText' onChange={(e) => setPageDisclaimerText(e.target.value)} defaultValue={pageDisclaimerText}/>
+                  <Input key='shareTagText' type='text' name='shareTagText' id='shareTagText' onChange={(e) => setShareTagText(e.target.value)} defaultValue={shareTagText} placeholder='Share your keepsake and tag us!' />
                 </Col>
               </FormGroup>
               <FormGroup row>
