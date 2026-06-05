@@ -23,6 +23,7 @@ env:
 
 jobs:
   build:
+    if: ${{ github.repository == 'HeliosInteractive/dispatch-api' }}
     runs-on: ubuntu-latest
     steps:
 

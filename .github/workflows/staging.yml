@@ -19,6 +19,7 @@ env:
 
 jobs:
   build:
+    if: ${{ github.repository == 'HeliosInteractive/dispatch-api' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -37,6 +38,7 @@ jobs:
         run: bin/ecr-build
 
   deploy:
+    if: ${{ github.repository == 'HeliosInteractive/dispatch-api' }}
     runs-on: ubuntu-latest
     needs: build
     steps:

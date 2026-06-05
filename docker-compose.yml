@@ -9,16 +9,8 @@ services:
       target: dev
     volumes:
       - .:/app
-      - type: volume
-        source: nodemodules
-        target: /app/node_modules
-        volume:
-          nocopy: true
-      - type: volume
-        source: npm
-        target: /root/.npm
-        volume:
-          nocopy: true
+      - nodemodules:/app/node_modules
+      - npm:/root/.npm
     # depends_on:
     #   - reach-ui-ngrok
     environment:
