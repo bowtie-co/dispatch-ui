@@ -113,6 +113,7 @@ export const ThemeForm = (props) => {
   const [ shareButtonText, setShareButtonText ] = useState(theme.shareButtonText);
   const [ shareTitleText, setShareTitleText ] = useState(theme.shareTitleText);
   const [ shareTagText, setShareTagText ] = useState(theme.shareTagText);
+  const [ textMessageCopy, setTextMessageCopy ] = useState(theme.textMessageCopy);
 
   const [ approvalQueueApproveMsg, setApprovalQueueApproveMsg ] = useState(theme.approvalQueueApproveMsg);
   const [ approvalQueueDenyMsg, setApprovalQueueDenyMsg ] = useState(theme.approvalQueueDenyMsg);
@@ -168,6 +169,7 @@ export const ThemeForm = (props) => {
     shareButtonText,
     shareTitleText,
     shareTagText,
+    textMessageCopy,
     enableDownloadLink: true,
     approvalQueueApproveMsg,
     approvalQueueDenyMsg,
@@ -569,6 +571,15 @@ export const ThemeForm = (props) => {
                 <Label md={4} lg={3} for='shareTagText'>Share Tag Text</Label>
                 <Col md={8}>
                   <Input key='shareTagText' type='text' name='shareTagText' id='shareTagText' onChange={(e) => setShareTagText(e.target.value)} defaultValue={shareTagText} placeholder='Share your keepsake and tag us!' />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label md={4} lg={3} for='textMessageCopy'>
+                  Text Message Copy <br />
+                  <small className='text-muted'>Use <code>{'{{link}}'}</code> to insert the share URL</small>
+                </Label>
+                <Col md={8}>
+                  <Input key='textMessageCopy' type='textarea' name='textMessageCopy' id='textMessageCopy' onChange={(e) => setTextMessageCopy(e.target.value)} defaultValue={textMessageCopy} placeholder='Check out your post! {{link}}' />
                 </Col>
               </FormGroup>
               <FormGroup row>
