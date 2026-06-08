@@ -27,9 +27,10 @@ export const ShareLink = (props) => {
         const sanitizedTitle = theme.shareTitleText
           ? theme.shareTitleText.replace(/[^a-zA-Z0-9 ]/g, '').replace(/\s+/g, '_')
           : null;
+        const imageExt = blob.type === 'image/png' ? 'png' : 'jpg';
         const filename = isVideo
           ? `${sanitizedTitle || 'Dispatch_Video'}.mp4`
-          : `${sanitizedTitle || 'Dispatch_Image'}.jpg`;
+          : `${sanitizedTitle || 'Dispatch_Image'}.${imageExt}`;
         setMediaFile(new File([blob], filename, { type: blob.type }));
         setLoaded(true);
       })
